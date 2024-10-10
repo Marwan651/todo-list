@@ -3,6 +3,7 @@
 import { useState } from "react";
 
 import styles from "./page.module.css";
+import { addTodoItem } from "@/actions/add-todo";
 
 export default function Home() {
   const [showTodo, setShowTodo] = useState(false);
@@ -13,8 +14,8 @@ export default function Home() {
       <header className={styles.header}>
         <h2>Todo</h2>
       </header>
-      <form className={styles.add}>
-        <input name="add" />
+      <form className={styles.add} action={addTodoItem}>
+        <input required name="title" />
         <button>Add</button>
       </form>
       <div className={styles.todo}>
