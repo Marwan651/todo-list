@@ -53,10 +53,16 @@
   margin-bottom: 0.5rem;
 }
 
+.todo h3:hover,
+.completed h3:hover {
+  cursor: pointer;
+}
+
 .todo li,
 .completed li {
   background-color: #504aa5;
   border-radius: 3px;
   margin-bottom: 0.5rem;
   padding: 5px;
+  list-style-type: none;
 }

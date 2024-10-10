@@ -1,6 +1,13 @@
+"use client";
+
+import { useState } from "react";
+
 import styles from "./page.module.css";
 
 export default function Home() {
+  const [showTodo, setShowTodo] = useState(false);
+  const [showCompleted, setShowCompleted] = useState(false);
+
   return (
     <>
       <header className={styles.header}>
@@ -11,20 +18,30 @@ export default function Home() {
         <button>Add</button>
       </form>
       <div className={styles.todo}>
-        <h3>&dArr;Todo</h3>
-        <ul>
-          <li>t1</li>
-          <li>t2</li>
-          <li>t3</li>
-        </ul>
+        <h3 onClick={() => setShowTodo(!showTodo)}>
+          {showTodo ? <span>&dArr;</span> : <span>&rArr;</span>}
+          Todo
+        </h3>
+        {showTodo && (
+          <ul>
+            <li>t1</li>
+            <li>t2</li>
+            <li>t3</li>
+          </ul>
+        )}
       </div>
       <div className={styles.completed}>
-        <h3>&dArr;Completed</h3>
-        <ul>
-          <li>t1</li>
-          <li>t2</li>
-          <li>t3</li>
-        </ul>
+        <h3 onClick={() => setShowCompleted(!showCompleted)}>
+          {showCompleted ? <span>&dArr;</span> : <span>&rArr;</span>}
+          Completed
+        </h3>
+        {showCompleted && (
+          <ul>
+            <li>t1</li>
+            <li>t2</li>
+            <li>t3</li>
+          </ul>
+        )}
       </div>
     </>
   );
