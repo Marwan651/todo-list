@@ -2,7 +2,7 @@
 
 import { redirect } from "next/navigation";
 
-import { addItem } from "@/lib/todos";
+import { addItem, deleteItem, markItemCompleted } from "@/lib/todos";
 
 export async function addTodoItem(formData) {
   const title = formData.get("title");
@@ -20,5 +20,15 @@ export async function addTodoItem(formData) {
   }
 
   addItem(title);
+  redirect("/");
+}
+
+export async function modifyItem(id, title) {
+  markItemCompleted(id, title);
+  redirect("/");
+}
+
+export async function deleteTodoItem(id) {
+  deleteItem(id);
   redirect("/");
 }
