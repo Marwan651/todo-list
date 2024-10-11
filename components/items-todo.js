@@ -3,9 +3,14 @@
 import { useState } from "react";
 
 import styles from "./items.module.css";
+import { modifyItem } from "@/actions/todos-actions";
 
 export default function ItemsTodo({ items }) {
   const [showTodo, setShowTodo] = useState(false);
+
+  if (items.length === 0) {
+    return;
+  }
 
   return (
     <div className={styles.todo}>
@@ -16,7 +21,12 @@ export default function ItemsTodo({ items }) {
       {showTodo && (
         <ul>
           {items.map((item) => (
-            <li key={item.key}>{item.title}</li>
+            <form action={() => modifyItem(item.id, item.title)}>
+              <li key={item.id}>
+                <p>{item.title}</p>
+                <button className={styles.check}>&#10004;</button>
+              </li>
+            </form>
           ))}
         </ul>
       )}

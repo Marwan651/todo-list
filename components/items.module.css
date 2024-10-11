@@ -27,4 +27,24 @@
   margin-bottom: 0.5rem;
   padding: 5px;
   list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.check,
+.close {
+  cursor: pointer;
+  font-size: medium;
+  margin-right: 3px;
+  background-color: transparent;
+  border: none;
+}
+
+.close {
+  font-size: larger;
+}
+
+.todo p,
+.completed p {
+  margin-top: 2px;
 }

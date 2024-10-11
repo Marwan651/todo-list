@@ -1,11 +1,10 @@
 import styles from "./page.module.css";
-import { addTodoItem } from "@/actions/add-todo";
+import { addTodoItem } from "@/actions/todos-actions";
 import ItemsTodo from "@/components/items-todo";
 import ItemsCompleted from "@/components/items-completed";
-import { getAllItems, getCompletedItems, getTodoItems } from "@/lib/todos";
+import { getCompletedItems, getTodoItems } from "@/lib/todos";
 
 export default function Home() {
-  const items = getAllItems();
   const todos = getTodoItems();
   const completed = getCompletedItems();
 

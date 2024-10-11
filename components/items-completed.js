@@ -3,9 +3,14 @@
 import { useState } from "react";
 
 import styles from "./items.module.css";
+import { deleteTodoItem } from "@/actions/todos-actions";
 
 export default function ItemsCompleted({ items }) {
   const [showCompleted, setShowCompleted] = useState(false);
+
+  if (items.length === 0) {
+    return;
+  }
 
   return (
     <div className={styles.completed}>
@@ -16,7 +21,12 @@ export default function ItemsCompleted({ items }) {
       {showCompleted && (
         <ul>
           {items.map((item) => (
-            <li key={item.key}>{item.title}</li>
+            <form action={() => deleteTodoItem(item.id)}>
+              <li key={item.id}>
+                <p>{item.title}</p>
+                <button className={styles.close}>&times;</button>
+              </li>
+            </form>
           ))}
         </ul>
       )}
