@@ -1,5 +1,7 @@
 "use server";
 
+import { redirect } from "next/navigation";
+
 import { addItem } from "@/lib/todos";
 
 export async function addTodoItem(formData) {
@@ -18,4 +20,5 @@ export async function addTodoItem(formData) {
   }
 
   addItem(title);
+  redirect("/");
 }
